@@ -1,0 +1,16 @@
+// Weekly Diary for Sharon Park
+
+
+Week 1
+- Met members of the group
+- Discussed between topic 1 and 2
+- Temporarily decided to go with topic 2
+- Became scrum master
+- Made separate branches for different parts of the project
+
+Week 2
+- Clarified the details of the projects with tutor
+- Needed to wait until we could have access to the data of all the courses
+- Divided parts of the projects briefly with team members to start working on
+  our project
+- 

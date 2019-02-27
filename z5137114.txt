@@ -1,0 +1,16 @@
+Weekly diary from Tiancong Liu, z5137114
+
+Week 1
+- First time meet with the other 3 team members
+- Went through the two topics desingned for the course
+- Decided to choose topic 2, learning outcome generator, temporarily
+- Created the team group on github
+- Temporarily assigned the works(can be adjusted later)
+
+
+Week 2
+- Further discussion on the details with the tutor
+- Temporarily decided to work on API part, together with Yun Lu
+- Have to wait for mor info for the machine learning part
+- Start working on the proposal
+- Prepare for the upcoming demo on week 3

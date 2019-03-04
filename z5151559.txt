@@ -1,3 +1,6 @@
 Week 1:
   Just know what's the project about;
   For this project, we need to apply machine learning into this, So i learnt basic knowleage and usage of it.
+
+Week 2:
+  After taking the tutorial, i know we also need natrual language processing, so i learnt basic knowledge such as nltk and word2vec python package and analyze the structure of the given data, at end of the week, finish the basic extraction of the given data.

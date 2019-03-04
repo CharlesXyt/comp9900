@@ -14,3 +14,8 @@ Week 2
 - Have to wait for mor info for the machine learning part
 - Start working on the proposal
 - Prepare for the upcoming demo on week 3
+
+
+Week 3
+- Getting to know my repository, which is user interface design/front end
+- Finished the simple API demostration for week 3

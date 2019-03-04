@@ -1,0 +1,14 @@
+//Diary of Yun Lu
+
+Week 1
+1. Found group members
+2. Identified topic2 as our Project theme
+3. Understand the requirements of topic2
+4. Joined the GitHub repository
+
+Week 2
+1. Clarified the specific functions of Project
+2. Participated in a panel discussion on editing proposal
+3. Learned the relationship between learning outcome and assessment, and the relationship of course description
+4. Understood the technology of NLP
+5. Participated in the analysis of data structures and the processing of existing databases

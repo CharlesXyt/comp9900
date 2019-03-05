@@ -18,4 +18,4 @@ Week 2
 
 Week 3
 - Getting to know my repository, which is user interface design/front end
-- Finished the simple API demostration for week 3
+- Finished the simple front end demostration for week 3

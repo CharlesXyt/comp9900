@@ -13,4 +13,12 @@ Week 2
 - Needed to wait until we could have access to the data of all the courses
 - Divided parts of the projects briefly with team members to start working on
   our project
-- 
+- Confirmed system architecture
+
+Week 3
+- Got few more questions specified by lecturers/tutors
+- Proposed user stories and asked team to review
+- Aim/system architecture and other components for the project proposal
+- Assigned team to set up simple web running, and organising data for courses
+- Research into Heroku and Github dashboards to assign tasks from next week
+

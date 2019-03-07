@@ -10,12 +10,12 @@ Week 1
 
 Week 2
 - Further discussion on the details with the tutor
-- Temporarily decided to work on API part, together with Yun Lu
-- Have to wait for mor info for the machine learning part
-- Start working on the proposal
-- Prepare for the upcoming demo on week 3
+- Have to wait for more info for the machine learning part
+- Working on the Front end
 
 
 Week 3
-- Getting to know my repository, which is user interface design/front end
-- Finished the simple front end demostration for week 3
+- Getting to know my repository, which is user interface/front end
+- Working on the prototype of the front end
+- Working on the diagram within the proposal
+- Have to finish and submit the proposal by the end of this Friday

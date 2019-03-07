@@ -4,10 +4,12 @@ app = Flask(__name__)
 app.secret_key = 'u2jksidjflsduwerjl'
 app.debug = True
 USER_DICT = {
-    0: {'course_code':'COMP9021','course_name':'Principles of programming'},
+    0: {'course_code':'COMP9021','course_name':'Principles of Programming'},
     1: {'course_code':'COMP9900','course_name':'Infomation Technology Project'},
     2: {'course_code':'COMP9336','course_name':'Mobile Data Networking'},
     3:{'course_code':'COMP9334','course_name':'Capacity Planning of Computer Systems and Networks'},
+    4:{'course_code':'COMP9024','course_name':'Data Structures and Algorithms'},
+    5:{'course_code':'COMP9444','course_name':'Neural Networks and Deep Learning'},
 }
 
 
@@ -22,7 +24,7 @@ def temp():
     cid = request.args.get('search')                #cid is something like COMP9021 now
     i = 0
     while i< len(USER_DICT):
-        if cid == USER_DICT[i]['course_code']:
+        if cid == USER_DICT[i]['course_code'] or cid == USER_DICT[i]['course_name']:
             return render_template('placeholder.html',info = ('This is a placeholder for ' + USER_DICT[i]['course_code'] + '.'))
         i = i+1
     return render_template('placeholder.html',info = 'Can\'t find your input info. Click the button at the bottom right corner to return.')
@@ -72,4 +74,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='127.0.0.1',port='5000')

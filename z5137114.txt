@@ -19,3 +19,7 @@ Week 3
 - Working on the prototype of the front end
 - Working on the diagram within the proposal
 - Have to finish and submit the proposal by the end of this Friday
+
+Week 4
+- Still working on the front end
+- Prepare for the demo on Tuesday

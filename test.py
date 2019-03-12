@@ -5,7 +5,7 @@ app.secret_key = 'u2jksidjflsduwerjl'
 app.debug = True
 USER_DICT = {
     0: {'course_code':'COMP9021','course_name':'Principles of Programming'},
-    1: {'course_code':'COMP9900','course_name':'Infomation Technology Project'},
+    1: {'course_code':'COMP9900','course_name':'Information Technology Project'},
     2: {'course_code':'COMP9336','course_name':'Mobile Data Networking'},
     3:{'course_code':'COMP9334','course_name':'Capacity Planning of Computer Systems and Networks'},
     4:{'course_code':'COMP9024','course_name':'Data Structures and Algorithms'},

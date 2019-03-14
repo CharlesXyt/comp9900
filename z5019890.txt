@@ -29,6 +29,4 @@ Week 4
   order so the words make sense as a 'sentence'
 - Learning jquery, looking into front end
 - HTML templates for pages / discussed layout with team
-
-
-
+- had a meeting

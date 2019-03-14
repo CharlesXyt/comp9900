@@ -20,5 +20,15 @@ Week 3
 - Proposed user stories and asked team to review
 - Aim/system architecture and other components for the project proposal
 - Assigned team to set up simple web running, and organising data for courses
-- Research into Heroku and Github dashboards to assign tasks from next week
+- Research into Github dashboards to assign tasks from next week
+
+Week 4
+- More questions clarified by tutor, will need to discuss next week about
+  sentence generating
+- Possible option in the mean time: output key phrases, let users choose the
+  order so the words make sense as a 'sentence'
+- Learning jquery, looking into front end
+- HTML templates for pages / discussed layout with team
+
+
 

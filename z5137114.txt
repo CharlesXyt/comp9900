@@ -23,3 +23,5 @@ Week 3
 Week 4
 - Still working on the front end
 - Prepare for the demo on Tuesday
+- Had a meeting on Thursday, determined the front-end style
+- Still have work to do on API to link database and front-end

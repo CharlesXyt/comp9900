@@ -12,3 +12,6 @@ Week 2
 3. Learned the relationship between learning outcome and assessment, and the relationship of course description
 4. Understood the technology of NLP
 5. Participated in the analysis of data structures and the processing of existing databases
+
+Week 3
+1.

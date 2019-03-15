@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background:#fc913a; 
+    font-family: Montserrat;
+}
+
+.h1{
+    padding-top: 100px;
+}
+.wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container{
+    position: relative;
+    padding: 20px 50px;
+}
+
+.input{
+    width: 400px;
+    border: 3px solid #fff;
+    background: transparent;
+    padding: 15px 30px;
+    border-radius: 50px;
+    outline: none;
+    font-size: 18px;
+    color: #fff;
+}
+
+::-webkit-input-placeholder {
+    color: #fff;
+    font-family: Montserrat;
+    text-transform: uppercase;
+}
+
+.close-btn{
+    position: absolute;
+    top: 21px;
+    right: 50px;
+    cursor: pointer;
+    color: #fc913a;
+    background: #fff;
+    border: 0px;
+    width: 120px;
+    height: 55px;
+    border-radius: 50px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}

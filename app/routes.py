@@ -12,15 +12,9 @@ def home():
 
 @app.route("/generate", methods = ['GET'])
 def generate():
-    course_list = []
-    connect('course_info')
-    for e in Course_Info.objects:
-        course_info = e.to_json()
-        course_info = json.loads(course_info)
-        course_code = course_info["_id"]
-        course_name = course_info["course_name"]
-        course_list.append(course_code + " - " + course_name)
-    return render_template("mainpage.html", course_list = course_list)
+    with open("course_info.json","r") as f:
+        course_list = json.loads(f.read())
+    return render_template("mainpage.html",course_list=course_list)
 
 if __name__ == '__main__':
     connect(host='mongodb://admin:admin@ds139067.mlab.com:39067/my-database')

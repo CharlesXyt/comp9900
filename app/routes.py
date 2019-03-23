@@ -25,7 +25,7 @@ def generate():
             aws_key = f.readline().split(":")[1]
             aws_secret = f.readline().split(":")[1]
         return render_template("mainpage.html",course_list=course_list)
-    if request.method =="GET":
+    if request.method =="POST":
         course_id = request.form.get("course_info").split(" - ")
         connect("course_info")
         try:

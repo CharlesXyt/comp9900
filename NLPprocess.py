@@ -1,40 +1,31 @@
-import pandas as pd
+import json
 import re
 import nltk
 from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-from bs4 import BeautifulSoup
+from nltk.stem import PorterStemmer
 import gensim
+
 
 
 def clean_text(data):
     if data != "NULL":
         data = data.lower()
-        result = re.sub(r"[\.\,\(\)\:]","",data)
+        result = re.sub(r"[\.\,\(\)\:]"," ",data)
         result = nltk.word_tokenize(result)
-        word = WordNetLemmatizer()
-        result = [word.lemmatize(e) for e in result]
+        word = PorterStemmer()
+        result = [word.stem(e) for e in result]
         filter_word = [word for word in result if word not in stopwords.words('english')]
         return filter_word
     return
-all_useful_sentences = []
-df = pd.read_csv("all_information.csv",index_col=0)
-df["handbook_description"] = df["handbook_description"].fillna("NULL")
-df["learning_outcome"] = df["learning_outcome"].fillna("NULL")
 
-for e in df["handbook_description"]:
-    if e == "NULL":
-        continue
-    else:
-        text = BeautifulSoup(e, "html.parser").get_text()
-        all_useful_sentences.append(clean_text(text))
+def create_vector_file(filename):
+    with open("cour_all.json","r") as f:
+        all_info = json.loads(f.read())
+    for e in range(len(all_info)):
+        all_info[e] = clean_text(all_info[e])
+    model = gensim.models.Word2Vec(sentences=all_info,size=200,min_count=1)
+    model.save(filename)
 
-for e in df["learning_outcome"]:
-    if e == "NULL":
-        continue
-    else:
-        all_useful_sentences.append(clean_text(e))
-
-model = gensim.models.Word2Vec(all_useful_sentences, min_count=1)
-model.save("mymodel")
-print(model.most_similar("medicine"))
+def load_vector_file(filename):
+    model = gensim.models.Word2Vec.load(filename)
+    return model

@@ -2,5 +2,5 @@ flask
 mongoengine
 json
 re
-boto
+boto3
 bs4

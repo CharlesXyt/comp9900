@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <!--Import Google Icon Font-->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!--Import materialize.css-->
+            <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+            <link rel="stylesheet" href="css/mainpage.css")>
+            <!--Let browser know website is optimized for mobile-->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </head>
+
+        <body>
+          <div class="search-page">
+            <div class="page-content">
+              <h3>Learning Outcomes Generator</h3>
+              <p>
+              </p>
+              <div class="container">
+                  <div class="input-field">
+                    <input type="text" class="transparent white-text autocomplete" id="autocomplete-input" placeholder="  Enter course code">
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <!--info slider-->
+          <div class="slider">
+              <ul class="slides">
+                <li>
+                  <div class="caption center-align">
+                    <h3>This is our big Tagline!</h3>
+                    <h5 class="black-text text-lighten-3">Here's our small slogan.</h5>
+                  </div>
+                </li>
+                <li>
+                  <div class="caption left-align">
+                    <h3>Left Aligned Caption</h3>
+                    <h5 class="black-text">Here's our small slogan.</h5>
+                  </div>
+                </li>
+              </ul>
+            </div>
+        
+          <!--JavaScript at end of body for optimized loading-->
+          <!--Import jQuery before materialize-->
+          <script type="text/javascript" src=js/jquery-3.3.1.min.js></script>
+          <script type="text/javascript" src="js/materialize.min.js"></script>
+          <script>
+            //autocomplete
+            const ac = document.querySelector('.autocomplete');
+            // M = materialize library
+            M.Autocomplete.init(ac, {
+              data: {
+                "Aruba": null,
+                "Cancun Mexico": null,
+                "Hawaii": null,
+                "Florida": null,
+                "California": null,
+                "Jamaica": null,
+                "Europe": null,
+                "The Bahamas": null,
+               }
+            });
+
+            //slider
+            const slider = document.querySelector('.slider');
+            M.Slider.init(slider, {
+              indicators: true,
+              height: 300,
+              interval: 6000
+            });
+          </script>
+        </body>
+    </html>

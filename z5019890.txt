@@ -29,4 +29,17 @@ Week 4
   order so the words make sense as a 'sentence'
 - Learning jquery, looking into front end
 - HTML templates for pages / discussed layout with team
-- had a meeting
+
+Week 5
+- Hurt my neck, so couldn't stay sitted to do much work most of the week
+- Learned Materialize and replaced the homepage with Materialize + HTML
+- Implemented Materialize search bar with sample data
+- In the mean time, team had already connected database to previous HTML (search
+  bar showing list of courses, but not exactly an autocomplete search bar)
+
+Week 6
+- Synced Materalize HTML up to date with database (replaced the files)
+- Adding information on the search page, to improve user experience and
+  interactive design
+- Verb pools vs. list of words to display - looking into different elements of
+  Materialize that would work the best with what we are after

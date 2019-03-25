@@ -1,0 +1,6 @@
+flask
+mongoengine
+json
+re
+boto3
+bs4

@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup
 import gensim
 
 
+
+
 def clean_text(data):
     if data != "NULL":
         data = data.lower()

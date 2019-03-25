@@ -47,10 +47,10 @@
             //autocomplete
             const ac = document.querySelector('.autocomplete');
             // M = materialize library
-            var availableTags = '{{ course_list|tojson }}';
-
+            var availableTags = {{ course_list|tojson }};
+            console.log(availableTags)
             M.Autocomplete.init(ac, {
-              data: availableTags
+                data:availableTags
             });
 
           </script>

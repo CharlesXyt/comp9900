@@ -4,6 +4,15 @@
     background: #f4f4f4;
 }
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
+
 .page-content{
 
     position: absolute;
@@ -20,7 +29,7 @@
 
 .page-content h3{
     color: #fc913a;
-    font-size: 30px;
+    font-size: 35px;
     text-transform: uppercase;
     margin-bottom: 100px;
 }
@@ -37,12 +46,17 @@
     width: 90% !important;
     border: #fc913a 3px solid !important;
 }
-.slider{
-   background: #fc913a;
-   position:absolute;
-   bottom:0;
-   width:100%;
-   height:200px;   /* Height of the footer */
-   color:#fc913a;
-   margin-bottom: 20px;
+
+.page-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.page-footer h5{
+    margin: 20px;
+}
+.page-footer p{
+    margin: 20px;
 }

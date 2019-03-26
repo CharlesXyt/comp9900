@@ -13,18 +13,21 @@ aws_secret = ""
 
 @app.route("/")
 def home():
-   return render_template("landingpage.html")
+   return render_template("index.html")
 
 @app.route("/generate", methods = ['GET',"POST"])
 def generate():
     if request.method == "GET":
         with open("course_info.json","r") as f:
             course_list = json.loads(f.read())
+            result = {}
+            for e in course_list:
+                result[e] = None
         with open("credential","r") as f:
             global aws_key,aws_secret
             aws_key = f.readline().split(":")[1]
             aws_secret = f.readline().split(":")[1]
-        return render_template("mainpage.html",course_list=course_list)
+        return render_template("mainpage-new.html",course_list=result)
     if request.method =="POST":
         course_id = request.form.get("course_info").split(" - ")
         connect("course_info")
@@ -42,7 +45,7 @@ def generate():
                 ],
                 LanguageCode='en'
             )
-            return render_template("mainpage.html", course_list=cc["ResultList"][0]["KeyPhrases"])
+            return render_template("mainpage-new.html", course_list=cc["ResultList"][0]["KeyPhrases"])
         except Exception:
                 return jsonify("error message"),404
 

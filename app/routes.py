@@ -1,4 +1,4 @@
-from flask import Flask,request,jsonify
+from flask import Flask,request,jsonify,url_for
 from flask import render_template
 from upload_dataset import Course_Info
 from mongoengine import connect
@@ -27,14 +27,19 @@ def generate():
             global aws_key,aws_secret
             aws_key = f.readline().split(":")[1]
             aws_secret = f.readline().split(":")[1]
+            aws_key = aws_key.rstrip()
+            aws_secret = aws_secret.rstrip()
         return render_template("mainpage-new.html",course_list=result)
     if request.method =="POST":
-        course_id = request.form.get("course_info").split(" - ")
+        course_id = request.form.get("course_info").split(" - ")[0]
         connect("course_info")
         try:
+
             result = Course_Info.objects(course_code=course_id)
+            print(json.loads(result.to_json()))
             description = json.loads(result.to_json())[0]["description"]
             description = re.sub(r"[\n]"," ",description)
+            print(description)
             session = Session(aws_access_key_id=aws_key,
                               aws_secret_access_key=aws_secret,
                               region_name="ap-southeast-2")
@@ -45,7 +50,12 @@ def generate():
                 ],
                 LanguageCode='en'
             )
-            return render_template("mainpage-new.html", course_list=cc["ResultList"][0]["KeyPhrases"])
+            print(cc)
+            result = set()
+            for e in cc["ResultList"][0]["KeyPhrases"]:
+                result.add(e["Text"])
+            print(result)
+            return jsonify(list(result)),200
         except Exception:
                 return jsonify("error message"),404
 

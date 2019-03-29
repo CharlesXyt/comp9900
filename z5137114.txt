@@ -33,3 +33,4 @@ Week 5
 Week 6
 - Demo due, basic structure established
 - Two parts: generate and evaluate, both in progress
+- Prepare for the project report, which is due on Week 10

@@ -57,17 +57,6 @@
             M.Autocomplete.init(ac, {
                 data:availableTags
             });
-            //fetch
-            <!--function KeyDown()-->
-            <!--{-->
-              <!--if (event.keyCode == 13)-->
-              <!--{-->
-                <!--event.returnValue=false;-->
-                <!--event.cancel = true;-->
-                <!--console.log(document.getElementById("autocomplete-input"))-->
-                <!--document.getElementById("autocomplete-input").submit();-->
-              <!--}-->
-            <!--}-->
             $(window).keydown(function(e){
                 var curKey = e.which;
                 if(curKey == 13){

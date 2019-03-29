@@ -29,3 +29,7 @@ Week 4
 Week 5 
 - API and database parts are partially finished
 - Still working on front end pages to cope with back end 
+
+Week 6
+- Demo due, basic structure established
+- Two parts: generate and evaluate, both in progress

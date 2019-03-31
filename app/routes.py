@@ -34,12 +34,10 @@ def generate():
         course_id = request.form.get("course_info").split(" - ")[0]
         connect("course_info")
         try:
-
             result = Course_Info.objects(course_code=course_id)
             print(json.loads(result.to_json()))
             description = json.loads(result.to_json())[0]["description"]
             description = re.sub(r"[\n]"," ",description)
-            print(description)
             session = Session(aws_access_key_id=aws_key,
                               aws_secret_access_key=aws_secret,
                               region_name="ap-southeast-2")
@@ -50,17 +48,20 @@ def generate():
                 ],
                 LanguageCode='en'
             )
-            print(cc)
             result = set()
+            parttern = re.compile("[a-z]{4}\d{4}")
             for e in cc["ResultList"][0]["KeyPhrases"]:
-                result.add(e["Text"])
-            print(result)
-            return jsonify(list(result)),200
+                e = e["Text"]
+                temp = e.lower()
+                if temp.find("student") != -1 or temp.find("course") != -1 or temp.find("unsw")!=-1 or parttern.findall(temp):
+                    continue
+                result.add(e)
+            return render_template("new-generate1.html",list=list(result))
         except Exception:
                 return jsonify("error message"),404
+
 
 
 if __name__ == '__main__':
     connect(host='mongodb://admin:admin@ds139067.mlab.com:39067/my-database')
     app.run(port=8000, debug=True)
-

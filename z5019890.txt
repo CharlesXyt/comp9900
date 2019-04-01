@@ -43,3 +43,14 @@ Week 6
   interactive design
 - Verb pools vs. list of words to display - looking into different elements of
   Materialize that would work the best with what we are after
+
+
+Week 7
+- Use of tags for users to decide which key phrases are most relevant for them
+- Drop menu of verbs in Bloom's taxonomy to display measurable verbs in all
+  areas
+- Implement download function: allowing users to download the outcomes created
+- Start writing up HTML templates for remaining generate pages and evaluate
+  pages
+
+

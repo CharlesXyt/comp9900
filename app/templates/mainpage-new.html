@@ -50,7 +50,8 @@
             var availableTags = {{ course_list|tojson }};
             console.log(availableTags)
             M.Autocomplete.init(ac, {
-                data:availableTags
+                data:availableTags,
+                minLength: 4
             });
 
           </script>

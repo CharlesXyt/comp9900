@@ -66,10 +66,10 @@
             <h5 class="center">Analyse</h5>
               <select multiple id="Analyse">
                 <option value="">Choose your option</option>
-                <option value="executing">differentiating</option>
-                <option value="carrying" out="">organizing</option>
-                <option value="implementing">attributing</option>
-                <option value="using">coherence</option>
+                <option value="differentiating">differentiating</option>
+                <option value="organizing">organizing</option>
+                <option value="attributing">attributing</option>
+                <option value="coherence">coherence</option>
 
               </select>
           </div>
@@ -81,7 +81,7 @@
               <select multiple id="Apply">
                 <option value="">Choose your option</option>
                 <option value="executing">executing</option>
-                <option value="carrying" out="">carrying out</option>
+                <option value="carrying out">carrying out</option>
                 <option value="implementing">implementing</option>
                 <option value="using">using</option>
 
@@ -123,7 +123,8 @@
       </div>
 
       <div class="row center">
-        <a href="/generate2" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+        <button  id="getstarted-button" class="btn-large waves-effect waves-light orange">Get Started</button>
+        <!--href="/generate2"-->
       </div>
       <br><br>
 
@@ -169,16 +170,25 @@
          temp.append("<td>"+key_phrases[i]+"</td>");
       }
 
-      <!--var verbs = ["Create", "Evaluate", "Analyze", "Apply", "Understand", "Remember"];-->
-      <!--for (var i=0; i < verbs.length; i++){-->
-        <!--$("#"+verbs[i]).append("<option value=''>Choose your option</option>");-->
+
+    });
+
+    $( "#getstarted-button" ).click(function() {
+      var verbs = ["Create", "Evaluate", "Analyse", "Apply", "Understand", "Remember"];
+      var selectedVerbs = [];
+      for (var i=0; i < verbs.length; i++){
+          $.each($("#"+verbs[i]+" option:selected"), function(){
+             selectedVerbs.push($(this).val());
+        });
+
+
         <!--for (var j=0; j < verb_wheel[verbs[i]].length; j++){-->
           <!--$("#"+verbs[i]).append("<option value=" + verb_wheel[verbs[i]][j] + ">" + verb_wheel[verbs[i]][j] + "</option>");-->
         <!--}-->
-      <!--}-->
+      }
+      console.log(selectedVerbs);
+     });
 
-
-    });
   </script>
     
   

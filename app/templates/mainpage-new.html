@@ -18,9 +18,11 @@
               <p>
               </p>
               <div class="container">
-                  <div class="input-field">
-                    <input type="text" class="transparent white-text autocomplete" id="autocomplete-input" placeholder="  Enter course code">
-                  </div>
+                  <form name="Form1" id="course_form" method="POST" action="{{url_for('generate')}}">
+                      <div class="input-field">
+                          <input type="text" name="course_info" class="transparent grey-text dark autocomplete" id="autocomplete-input" placeholder="  Enter course code" >
+                      </div>
+                  </form>
               </div>
             </div>
           </div>
@@ -53,7 +55,12 @@
                 data:availableTags,
                 minLength: 4
             });
-
+            $(window).keydown(function(e){
+                var curKey = e.which;
+                if(curKey == 13){
+                    $('course_form').submit();
+                }
+            })
           </script>
         </body>
     </html>

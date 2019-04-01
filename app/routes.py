@@ -1,4 +1,4 @@
-from flask import Flask,request,jsonify
+from flask import Flask,request,jsonify,url_for
 from flask import render_template
 from upload_dataset import Course_Info
 from mongoengine import connect
@@ -9,7 +9,12 @@ from boto3.session import Session
 app = Flask(__name__)
 aws_key = ""
 aws_secret = ""
-
+verb_wheel = dict({"Remember":["recognizing", "identifying","recalling", "retrieving"],
+                          "Understand": ["interpreting", "exemplifying", "classifying", "summarizing",  "inferring","comparing","explaining"],
+                          "Apply":["executing", "carrying out", "implementing", "using"],
+                          "Analyze": ["differentiating", "organizing", "attributing", "coherence"],
+                          "Evaluate":["checking", "coordinating", "detecting", "critiquing", "judging"],
+                          "Create":["generating", "planning", "designing", "construct"]})
 
 @app.route("/")
 def home():
@@ -27,9 +32,12 @@ def generate():
             global aws_key,aws_secret
             aws_key = f.readline().split(":")[1]
             aws_secret = f.readline().split(":")[1]
+            aws_key = aws_key.rstrip()
+            aws_secret = aws_secret.rstrip()
         return render_template("mainpage-new.html",course_list=result)
-    if request.method =="POST":
-        course_id = request.form.get("course_info").split(" - ")
+
+    if request.method == "POST":
+        course_id = request.form.get("course_info").split(" - ")[0].upper()
         connect("course_info")
         try:
             result = Course_Info.objects(course_code=course_id)
@@ -39,18 +47,32 @@ def generate():
                               aws_secret_access_key=aws_secret,
                               region_name="ap-southeast-2")
             client = session.client("comprehend")
+
+            #response from AWS
             cc = client.batch_detect_key_phrases(
                 TextList=[
                     description
                 ],
                 LanguageCode='en'
             )
-            return render_template("mainpage-new.html", course_list=cc["ResultList"][0]["KeyPhrases"])
+            result = set()
+            parttern = re.compile("[a-z]{4}\d{4}")
+            for e in cc["ResultList"][0]["KeyPhrases"]:
+                e = e["Text"]
+                temp = e.lower()
+                if temp.find("student") != -1 or temp.find("course") != -1 or temp.find("unsw")!=-1 or temp.find("study")!=-1 or parttern.findall(temp) :
+                    continue
+                result.add(e)
+            return render_template("new-generate1.html", list=list(result), verb_wheel = verb_wheel)
         except Exception:
                 return jsonify("error message"),404
+
+@app.route("/generate2", methods = ["POST"])
+def generate2():
+    pass
+
 
 
 if __name__ == '__main__':
     connect(host='mongodb://admin:admin@ds139067.mlab.com:39067/my-database')
     app.run(port=8000, debug=True)
-

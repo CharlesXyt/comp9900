@@ -31,11 +31,10 @@ def generate():
             aws_secret = aws_secret.rstrip()
         return render_template("mainpage-new.html",course_list=result)
     if request.method =="POST":
-        course_id = request.form.get("course_info").split(" - ")[0]
+        course_id = request.form.get("course_info").split(" - ")[0].upper()
         connect("course_info")
         try:
             result = Course_Info.objects(course_code=course_id)
-            print(json.loads(result.to_json()))
             description = json.loads(result.to_json())[0]["description"]
             description = re.sub(r"[\n]"," ",description)
             session = Session(aws_access_key_id=aws_key,
@@ -56,9 +55,13 @@ def generate():
                 if temp.find("student") != -1 or temp.find("course") != -1 or temp.find("unsw")!=-1 or parttern.findall(temp):
                     continue
                 result.add(e)
-            return render_template("new-generate1.html",list=list(result))
+            return render_template("generate1.html",list=list(result))
         except Exception:
                 return jsonify("error message"),404
+
+@app.route("/generate2", methods = ["POST"])
+def generate2():
+    pass
 
 
 

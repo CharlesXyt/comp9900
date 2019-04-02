@@ -77,11 +77,17 @@ def generate():
 @app.route("/generate2", methods = ["POST"])
 def generate2():
     try:
+        global verb_list,key_phrases_list
         response = request.get_json()
+        print(response)
         verb_list = json.loads(response["Verbs"])
+        print(verb_list)
         key_phrases_list = json.loads(response["Key_phrases"])
+        print(key_phrases_list)
         key_phrases_list = [e[:-6] for e in key_phrases_list]
-        return render_template("")
+        return render_template("mainpage-new.html",course_list=verb_list,key_phrases_list=key_phrases_list)
+    except Exception:
+        return jsonify("error"),404
 
 
 

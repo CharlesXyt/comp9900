@@ -201,7 +201,7 @@
 　　　　data:JSON.stringify({Verbs: JSON.stringify(selectedVerbs),Key_phrases: JSON.stringify(selectedKeyPhrases)}),
 　　　　contentType : 'application/json',
 　　　　success:function(data){
-　　　　　　console.log(data);
+　　　　　　$("html").html(data)
 　　　　},
 　　　　error: function (XMLHttpRequest, textStatus, errorThrown){
 　　　　　　alert("error");

@@ -69,10 +69,10 @@
             <h5 class="center">Analyse</h5>
               <select multiple id="Analyse">
                 <option value="">Choose your option</option>
-                <option value="executing">differentiating</option>
-                <option value="carrying" out="">organizing</option>
-                <option value="implementing">attributing</option>
-                <option value="using">coherence</option>
+                <option value="differentiating">differentiating</option>
+                <option value="organizing">organizing</option>
+                <option value="attributing">attributing</option>
+                <option value="coherence">coherence</option>
 
               </select>
           </div>
@@ -84,7 +84,7 @@
               <select multiple id="Apply">
                 <option value="">Choose your option</option>
                 <option value="executing">executing</option>
-                <option value="carrying" out="">carrying out</option>
+                <option value="carrying out">carrying out</option>
                 <option value="implementing">implementing</option>
                 <option value="using">using</option>
 
@@ -126,7 +126,8 @@
       </div>
 
       <div class="row center">
-        <a href="/generate2" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+        <button  id="getstarted-button" class="btn-large waves-effect waves-light orange">Get Started</button>
+        <!--href="/generate2"-->
       </div>
       <br><br>
 
@@ -163,11 +164,50 @@
       var verb_wheel = {{ verb_wheel|tojson }};
       $("#location_phrases").after("<br><br>");
       var temp = $("#location_phrases");
-      console.log($("#location_phrases"))
       for(var i=0; i<key_phrases.length; i++){
-            temp.after("<div class='chip'>"+key_phrases[i]+"<i class='close material-icons'>close</i></div>");
+            temp.after("<div class='chip'>"+key_phrases[i]+"<i class='close material-icons'> close</i></div>");
       }
     });
+    $( "#getstarted-button" ).click(function() {
+      var verbs = ["Create", "Evaluate", "Analyse", "Apply", "Understand", "Remember"];
+      var selectedVerbs = [];
+      var selectedKeyPhrases = [];
+      for (var i=0; i < verbs.length; i++){
+          $.each($("#"+verbs[i]+" option:selected"), function(){
+             selectedVerbs.push($(this).val());
+        });
+      }
+      $("div.chip").each(function(){
+        selectedKeyPhrases.push($(this).text());
+      });
+       <!--$.post("/generate2",-->
+      <!--{-->
+        <!--name:"Donald Duck",-->
+        <!--city:"Duckburg"-->
+      <!--},-->
+      <!--function(data,status){-->
+        <!--alert("Data: " + data + "\nStatus: " + status);-->
+      <!--});-->
+      <!--$.post("/generate2",-->
+      <!--{-->
+          <!--Verbs: JSON.stringify(selectedVerbs),-->
+          <!--Key_phrases: JSON.stringify(selectedKeyPhrases)-->
+      <!--},function(data, status){-->
+        <!--alert("Data: " + data + "\nStatus: " + status);-->
+      <!--});-->
+      $.ajax({
+　　　　type:'post',
+　　　　url:"/generate2",
+　　　　data:JSON.stringify({Verbs: JSON.stringify(selectedVerbs),Key_phrases: JSON.stringify(selectedKeyPhrases)}),
+　　　　contentType : 'application/json',
+　　　　success:function(data){
+　　　　　　console.log(data);
+　　　　},
+　　　　error: function (XMLHttpRequest, textStatus, errorThrown){
+　　　　　　alert("error");
+　　　　}
+    });
+   });
 
   </script>
     

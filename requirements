@@ -4,3 +4,4 @@ json
 re
 boto3
 bs4
+nltk

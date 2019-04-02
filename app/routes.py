@@ -85,7 +85,7 @@ def generate2():
         key_phrases_list = json.loads(response["Key_phrases"])
         print(key_phrases_list)
         key_phrases_list = [e[:-6] for e in key_phrases_list]
-        return render_template("mainpage-new.html",course_list=verb_list,key_phrases_list=key_phrases_list)
+        return render_template("generate2.html",course_list=verb_list,key_phrases_list=key_phrases_list)
     except Exception:
         return jsonify("error"),404
 

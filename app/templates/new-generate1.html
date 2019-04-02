@@ -18,7 +18,10 @@
         <br><br>
         <h5 id="location_phrases" class="header center orange-text text-lighten-2">Key phrases of the course</h5>
         <!-- the list goes here-->
-        <br><br>
+
+
+        <br>
+        <br>
 
       </div>
     </div>
@@ -158,27 +161,14 @@
     $(document).ready(function(){
       var key_phrases = {{list|tojson }};
       var verb_wheel = {{ verb_wheel|tojson }};
-      $("#location_phrases").append("<table id='list_key_phrases'></table>");
-      var temp;
+      $("#location_phrases").after("<br><br>");
+      var temp = $("#location_phrases");
       console.log($("#location_phrases"))
       for(var i=0; i<key_phrases.length; i++){
-         if(i % 4 == 0){
-            temp = $("<tr></tr>")
-            temp.appendTo($("#list_key_phrases"))
-         }
-         temp.append("<td>"+key_phrases[i]+"</td>");
+            temp.after("<div class='chip'>"+key_phrases[i]+"<i class='close material-icons'>close</i></div>");
       }
-
-      <!--var verbs = ["Create", "Evaluate", "Analyze", "Apply", "Understand", "Remember"];-->
-      <!--for (var i=0; i < verbs.length; i++){-->
-        <!--$("#"+verbs[i]).append("<option value=''>Choose your option</option>");-->
-        <!--for (var j=0; j < verb_wheel[verbs[i]].length; j++){-->
-          <!--$("#"+verbs[i]).append("<option value=" + verb_wheel[verbs[i]][j] + ">" + verb_wheel[verbs[i]][j] + "</option>");-->
-        <!--}-->
-      <!--}-->
-
-
     });
+
   </script>
     
   

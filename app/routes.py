@@ -2,8 +2,8 @@ from flask import Flask,request,jsonify,url_for
 from flask import render_template
 from upload_dataset import Course_Info
 from mongoengine import connect
-import json
-import re
+import json,re,nltk
+from nltk.corpus import stopwords
 from boto3.session import Session
 
 app = Flask(__name__)
@@ -15,6 +15,7 @@ verb_wheel = dict({"Remember":["recognizing", "identifying","recalling", "retrie
                           "Analyze": ["differentiating", "organizing", "attributing", "coherence"],
                           "Evaluate":["checking", "coordinating", "detecting", "critiquing", "judging"],
                           "Create":["generating", "planning", "designing", "construct"]})
+nltk.download('stopwords')
 
 @app.route("/")
 def home():
@@ -60,7 +61,11 @@ def generate():
             for e in cc["ResultList"][0]["KeyPhrases"]:
                 e = e["Text"]
                 temp = e.lower()
-                if temp.find("student") != -1 or temp.find("course") != -1 or temp.find("unsw")!=-1 or temp.find("study")!=-1 or parttern.findall(temp) :
+                if temp.find("student") != -1 or temp.find("course") != -1 or temp.find("unsw")!=-1 or temp.find("study")!=-1 or parttern.findall(temp):
+                    continue
+                temp = nltk.word_tokenize(temp)
+                filter_word = [word for word in temp if word not in stopwords.words('english')]
+                if len(filter_word) <= 1:
                     continue
                 result.add(e)
             return render_template("new-generate1.html", list=list(result), verb_wheel = verb_wheel)

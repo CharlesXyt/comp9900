@@ -9,6 +9,7 @@ from boto3.session import Session
 app = Flask(__name__)
 aws_key = ""
 aws_secret = ""
+verb_list, key_phrases_list = [], []
 verb_wheel = dict({"Remember":["recognizing", "identifying","recalling", "retrieving"],
                           "Understand": ["interpreting", "exemplifying", "classifying", "summarizing",  "inferring","comparing","explaining"],
                           "Apply":["executing", "carrying out", "implementing", "using"],
@@ -74,20 +75,24 @@ def generate():
         result = ["labs and programming projects", "data types", "any prior computing knowledge", "the full range", "program structures", "extensive practical work", "overlapping material", "data structures", "Additional Information", "code quality", "all CSE majors", "reflective practice", "a high level programming language", "storage structures"]
         return render_template("new-generate1.html", list=list(result), verb_wheel=verb_wheel)
 
-@app.route("/generate2", methods = ["POST"])
+@app.route("/generate2", methods = ["POST","GET"])
 def generate2():
-    try:
-        global verb_list,key_phrases_list
-        response = request.get_json()
-        print(response)
-        verb_list = json.loads(response["Verbs"])
-        print(verb_list)
-        key_phrases_list = json.loads(response["Key_phrases"])
-        print(key_phrases_list)
-        key_phrases_list = [e[:-6] for e in key_phrases_list]
-        return render_template("generate2.html",course_list=verb_list,key_phrases_list=key_phrases_list)
-    except Exception:
-        return jsonify("error"),404
+    global verb_list, key_phrases_list
+    if request.method == "GET":
+        return render_template("generate2.html",verb_list=verb_list,key_phrases_list=key_phrases_list)
+
+    if request.method == "POST":
+        try:
+            response = request.get_json()
+            print(response)
+            verb_list = json.loads(response["Verbs"])
+            print(verb_list)
+            key_phrases_list = json.loads(response["Key_phrases"])
+            print(key_phrases_list)
+            key_phrases_list = [e[:-6] for e in key_phrases_list]
+            return jsonify("success"),200
+        except Exception:
+            return jsonify("error"),404
 
 
 

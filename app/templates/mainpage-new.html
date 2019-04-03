@@ -45,22 +45,10 @@
           <!--Import jQuery before materialize-->
           <script type="text/javascript" src=static/jquery-3.3.1.min.js></script>
           <script type="text/javascript" src="static/materialize.min.js"></script>
-          <script>
-            //autocomplete
-            const ac = document.querySelector('.autocomplete');
-            // M = materialize library
-            var availableTags = {{ course_list|tojson }};
-            console.log(availableTags)
-            M.Autocomplete.init(ac, {
-                data:availableTags,
-                minLength: 4
-            });
-            $(window).keydown(function(e){
-                var curKey = e.which;
-                if(curKey == 13){
-                    $('course_form').submit();
-                }
-            })
+
+          <script type="text/javascript">
+                var availableTags = {{ course_list|tojson }};
           </script>
+          <script type="text/javascript" src="static/mainpage.js"></script>
         </body>
     </html>

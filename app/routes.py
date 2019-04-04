@@ -10,12 +10,12 @@ app = Flask(__name__)
 aws_key = ""
 aws_secret = ""
 verb_list, key_phrases_list = [], []
-verb_wheel = dict({"Remember":["recognizing", "identifying","recalling", "retrieving"],
-                          "Understand": ["interpreting", "exemplifying", "classifying", "summarizing",  "inferring","comparing","explaining"],
-                          "Apply":["executing", "carrying out", "implementing", "using"],
-                          "Analyze": ["differentiating", "organizing", "attributing", "coherence"],
-                          "Evaluate":["checking", "coordinating", "detecting", "critiquing", "judging"],
-                          "Create":["generating", "planning", "designing", "construct"]})
+verb_wheel = dict({"Remember":["Recognise", "Identify","Recall", "Select"],
+                          "Understand": ["Explain", "Describe", "Compare", "Predict",  "Illustrate"],
+                          "Apply":["Interpret", "Apply", "Use", "Practice", "Compute"],
+                          "Analyse": ["Integrate", "Analyse", "Organise", "Relate", "Deconstruct"],
+                          "Evaluate":["Evalute", "Critique", "Review", "Judge", "Justify"],
+                          "Create":["Generate", "Create", "Design", "Construct", "Compose"]})
 nltk.download('stopwords')
 
 @app.route("/")

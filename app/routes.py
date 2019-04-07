@@ -36,7 +36,7 @@ def generate():
             aws_secret = f.readline().split(":")[1]
             aws_key = aws_key.rstrip()
             aws_secret = aws_secret.rstrip()
-        return render_template("mainpage-new.html",course_list=result)
+        return render_template("search-generate.html",course_list=result)
 
     if request.method == "POST":
         # course_id = request.form.get("course_info").split(" - ")[0].upper()
@@ -73,7 +73,7 @@ def generate():
         # except Exception:
         #         return jsonify("error message"),404
         result = ["labs and programming projects", "data types", "any prior computing knowledge", "the full range", "program structures", "extensive practical work", "overlapping material", "data structures", "Additional Information", "code quality", "all CSE majors", "reflective practice", "a high level programming language", "storage structures"]
-        return render_template("new-generate1.html", list=list(result), verb_wheel=verb_wheel)
+        return render_template("generate1.html", list=list(result), verb_wheel=verb_wheel)
 
 @app.route("/generate2", methods = ["POST","GET"])
 def generate2():

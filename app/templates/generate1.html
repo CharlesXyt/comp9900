@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Parallax Template - Materialize</title>
+  <title>Learning outcome generator</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,8 +15,9 @@
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
-        <br><br>
+        
         <h5 id="location_phrases" class="header center orange-text text-lighten-2">Key phrases of the course</h5>
+        <h3 white-text>hello</h3>
         <!-- the list goes here-->
         <br><br>
 
@@ -35,59 +36,98 @@
           <div class="icon-block">
             <h2 class="center orange-text"><i class="material-icons small">flash_on</i></h2>
             <h5 class="center">Create</h5>
-
-            <p class="light">Insert drop down menu here</p>
+              <select multiple id="Create">
+                <option value="">Choose your option</option>
+                <option value="Create">Create</option>
+                <option value="Generate">Generate</option>
+                <option value="Design">Design</option>
+                <option value="Construct">Construct</option>
+                <option value="Compose">Compose</option>
+              </select>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center orange-text"><i class="material-icons small">group</i></h2>
+            <h2 class="center orange-text"><i class="material-icons small">flash_on</i></h2>
             <h5 class="center">Evaluate</h5>
-
-            <p class="light">Insert drop down menu here</p>
+              <select multiple id="Evaluate">
+                <option value="">Choose your option</option>
+                <option value="Evaluate">Evaluate</option>
+                <option value="Critique">Critique</option>
+                <option value="Review">Review</option>
+                <option value="Judge">Judge</option>
+                <option value="Justify">Justify</option>
+              </select>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center orange-text"><i class="material-icons small">settings</i></h2>
+            <h2 class="center orange-text"><i class="material-icons small">flash_on</i></h2>
             <h5 class="center">Analyse</h5>
+              <select multiple id="Analyse">
+                <option value="">Choose your option</option>
+                <option value="Differentiate">Analyse</option>
+                <option value="Integrate">Integrate</option>
+                <option value="Organise">Organise</option>
+                <option value="Relate">Relate</option>
+                <option value="Deconstruct">Deconstruct</option>
 
-            <p class="light">insert drop down menu here</p>
+
+              </select>
           </div>
         </div>
-
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center orange-text"><i class="material-icons small">settings</i></h2>
+            <h2 class="center orange-text"><i class="material-icons small">flash_on</i></h2>
             <h5 class="center">Apply</h5>
+              <select multiple id="Apply">
+                <option value="">Choose your option</option>
+                <option value="Apply">Apply</option>
+                <option value="Interpret">Intepret</option>
+                <option value="Use">Use</option>
+                <option value="Practice">Practice</option>
+                <option value="Compute">Compute</option>
 
-            <p class="light">insert drop down menu here</p>
+              </select>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center orange-text"><i class="material-icons small">settings</i></h2>
+            <h2 class="center orange-text"><i class="material-icons small">flash_on</i></h2>
             <h5 class="center">Understand</h5>
-
-            <p class="light">insert drop down menu here</p>
+              <select multiple id="Understand">
+                <option value="">Choose your option</option>
+                <option value="Understand">Understand</option>
+                <option value="Explain">Explain</option>
+                <option value="Describe">Describe</option>
+                <option value="Compare">Copmare</option>
+                <option value="Illustrate">Illustrate</option>
+              </select>
           </div>
         </div>
 
         <div class="col s12 m4">
-            <div class="icon-block">
-              <h2 class="center orange-text"><i class="material-icons small">settings</i></h2>
-              <h5 class="center">Remember</h5>
-
-              <p class="light">insert drop down menu here</p>
-            </div>
+          <div class="icon-block">
+            <h2 class="center orange-text"><i class="material-icons small">flash_on</i></h2>
+            <h5 class="center">Remember</h5>
+              <select multiple id="Remember">
+                <option value="">Choose your option</option>
+                <option value="Recognize">Recognize</option>
+                <option value="Identify">Identify</option>
+                <option value="Recall">Recall</option>
+                <option value="Retrieve">Retrieve</option>
+                <option value="Select">Select</option>
+              </select>
           </div>
+        </div>
+
       </div>
 
       <div class="row center">
-        <a href="/generate2" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+        <button id="getstarted-button" class="btn-large waves-effect waves-light orange">Get Started</button>
       </div>
       <br><br>
 
@@ -107,31 +147,26 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">A Team</a>
       </div>
     </div>
   </footer>
 
 
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="static/materialize.js"></script>
-  <script src="static/init.js"></script>
+  <script type="text/javascript" src=static/jquery-3.3.1.min.js></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js'></script>
+  <script  src="static/index.js"></script>
+  <script  src="static/init.js"></script>
   <script>
-    $(document).ready(function(){
-      var key_phrases = {{list|tojson}};
-      $("#location_phrases").append("<table id='list_key_phrases'></table>");
-      var temp;
-      console.log($("#location_phrases"))
-      for(var i=0;i<key_phrases.length;i++){
-         if(i % 4 == 0){
-            temp = $("<tr></tr>")
-            temp.appendTo($("#list_key_phrases"))
-         }
-         temp.append("<td>"+key_phrases[i]+"</td>");
-         }
-      });
+      var key_phrases = {{ list|tojson }};
+      var verb_wheel = {{ verb_wheel|tojson }};
   </script>
+  <script type="text/javascript" src="static/generate1.js"></script>
 
-  </body>
+  
+</body>
+  
+
+  
 </html>

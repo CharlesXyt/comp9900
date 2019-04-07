@@ -10,8 +10,8 @@ app = Flask(__name__)
 aws_key = ""
 aws_secret = ""
 verb_list, key_phrases_list = [], []
-verb_wheel = dict({"Remember":["Recognise", "Identify","Recall", "Select"],
-                          "Understand": ["Explain", "Describe", "Compare", "Predict",  "Illustrate"],
+verb_wheel = dict({"Remember":["Recognise", "Identify","Recall", "Retrieve", "Select"],
+                          "Understand": ["Explain", "Describe", "Compare", "Understand",  "Illustrate"],
                           "Apply":["Interpret", "Apply", "Use", "Practice", "Compute"],
                           "Analyse": ["Integrate", "Analyse", "Organise", "Relate", "Deconstruct"],
                           "Evaluate":["Evalute", "Critique", "Review", "Judge", "Justify"],

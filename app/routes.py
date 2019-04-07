@@ -94,6 +94,9 @@ def generate2():
         except Exception:
             return jsonify("error"),404
 
+@app.route("/generate3", methods = ["POST", "GET"])
+def generate3():
+    return render_template("generate3.html")
 
 
 if __name__ == '__main__':

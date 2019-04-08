@@ -9,7 +9,8 @@ from boto3.session import Session
 app = Flask(__name__)
 aws_key = ""
 aws_secret = ""
-verb_list, key_phrases_list = [], []
+verb_list, key_phrases_list,outcome_list = [], [], []
+course_info=""
 verb_wheel = dict({"Remember": ["Recognise", "Identify", "Recall", "Retrieve", "Select"],
                    "Understand": ["Explain", "Describe", "Compare", "Understand",  "Illustrate"],
                    "Apply": ["Interpret", "Apply", "Use", "Practice", "Compute"],
@@ -26,6 +27,7 @@ def home():
 
 @app.route("/generate", methods=['GET', "POST"])
 def generate():
+    global course_info
     if request.method == "GET":
         with open("course_info.json", "r") as f:
             course_list = json.loads(f.read())
@@ -41,7 +43,8 @@ def generate():
         return render_template("search-generate.html", course_list=result)
 
     if request.method == "POST":
-        # course_id = request.form.get("course_info").split(" - ")[0].upper()
+        course_info = request.form.get("course_info").split(" - ")
+        course_id = course_info[0].upper()
         # connect("course_info")
         # try:
         #     result = Course_Info.objects(course_code=course_id)
@@ -87,11 +90,8 @@ def generate2():
     if request.method == "POST":
         try:
             response = request.get_json()
-            print(response)
             verb_list = json.loads(response["Verbs"])
-            print(verb_list)
             key_phrases_list = json.loads(response["Key_phrases"])
-            print(key_phrases_list)
             key_phrases_list = [e[:-6] for e in key_phrases_list]
             return jsonify("success"), 200
         except Exception:
@@ -100,8 +100,17 @@ def generate2():
 
 @app.route("/generate3", methods=["POST", "GET"])
 def generate3():
-
-    return render_template("generate3.html")
+    global outcome_list
+    if request.method == "GET":
+        return render_template("generate3.html",outcome_list=outcome_list,course_info=course_info)
+    if request.method == "POST":
+        try:
+            outcome_list = []
+            response = request.get_json()
+            outcome_list = json.loads(response["outcome_list"])
+            return jsonify("success"), 200
+        except Exception:
+            return jsonify("error"), 404
 
 
 if __name__ == '__main__':

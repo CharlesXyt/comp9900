@@ -28,11 +28,7 @@
   <div class="container">
     <div class="section">
       <p class="center">The list of learning outcomes will go here</p>
-      <ul class="center">
-        <li>Outcome 1</li>
-        <li>Outcome 2</li>
-        <li>Outcome 3</li>
-        <li>Outcome 4</li>
+      <ul id="outcome_list" class="center">
       </ul>
 
     </div>
@@ -42,7 +38,7 @@
   <div class="container">
     <div class="section">
       <p class="center">
-        <button class="btn-large waves-effect waves-light" type="submit" name="action" onclick="window.open('outcomes.txt')">Download
+        <button id="outcome_download" class="btn-large waves-effect waves-light">Download
           <i class="material-icons right">cloud_download</i>
         </button>
         <a class="waves-effect waves-light btn-large modal-trigger orange" href="#modal1">Rate our generator</a>
@@ -82,7 +78,12 @@
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="static/materialize.js"></script>
+  <script>
+      var outcome_list = {{ outcome_list | tojson }};
+      var course_info ={{course_info|tojson}}
+  </script>
   <script src="static/generate3.js"></script>
+
 
   </body>
 </html>

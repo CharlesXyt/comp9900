@@ -1,8 +1,8 @@
 $(document).ready(function(){
-      $("#location_phrases").after("<br><br>");
+//      $("#location_phrases").append("<br><br>");
       var temp = $("#location_phrases");
       for(var i=0; i<key_phrases.length; i++){
-            temp.after("<div class='chip'>"+key_phrases[i]+"<i class='close material-icons'> close</i></div>");
+            temp.append("<div class='chip'>"+key_phrases[i]+"<i class='close material-icons'> close</i></div>");
       }
     });
     $( "#getstarted-button" ).click(function() {

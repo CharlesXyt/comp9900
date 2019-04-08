@@ -22,10 +22,10 @@ if (length < 6){
 
 //<!--dynamically generate key phrases options-->
 for (var i=1; i<=6; i++){
-$("#outcome_key_phrases_"+i).append("<option value=''>Choose the key phrase</option>");
-  for (var j=0; j<key_phrases_list.length; j++){
-    $("#outcome_key_phrases_"+i).append("<option value='"+key_phrases_list[j]+"'>"+key_phrases_list[j]+"</option>");
-  }
+    $("#outcome_key_phrases_"+i).append("<option value=''>Choose the key phrase</option>");
+    for (var j=0; j<key_phrases_list.length; j++){
+        $("#outcome_key_phrases_"+i).append("<option value='"+key_phrases_list[j]+"'>"+key_phrases_list[j]+"</option>");
+    }
 }
 $('select').material_select();
 });

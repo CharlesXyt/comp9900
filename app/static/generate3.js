@@ -22,7 +22,7 @@ $(document).ready(function(){
         var href = window.URL.createObjectURL(blob);
         const aLink = document.createElement('a');
         aLink.href = href
-        aLink.download = course_info[1]+"_outcome.txt";
+        aLink.download = course_info[0]+"_outcome.txt";
         aLink.click();
         window.URL.revokeObjectURL(href);
     });

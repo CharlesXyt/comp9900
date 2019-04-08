@@ -45,40 +45,40 @@ def generate():
     if request.method == "POST":
         course_info = request.form.get("course_info").split(" - ")
         course_id = course_info[0].upper()
-        # connect("course_info")
-        # try:
-        #     result = Course_Info.objects(course_code=course_id)
-        #     description = json.loads(result.to_json())[0]["description"]
-        #     description = re.sub(r"[\n]"," ",description)
-        #     session = Session(aws_access_key_id=aws_key,
-        #                       aws_secret_access_key=aws_secret,
-        #                       region_name="ap-southeast-2")
-        #     client = session.client("comprehend")
-        #
-        #     #response from AWS
-        #     cc = client.batch_detect_key_phrases(
-        #         TextList=[
-        #             description
-        #         ],
-        #         LanguageCode='en'
-        #     )
-        #     result = set()
-        #     parttern = re.compile("[a-z]{4}\d{4}")
-        #     for e in cc["ResultList"][0]["KeyPhrases"]:
-        #         e = e["Text"]
-        #         temp = e.lower()
-        #         if temp.find("student") != -1 or temp.find("course") != -1 or temp.find("unsw")!=-1 or temp.find("study")!=-1 or parttern.findall(temp):
-        #             continue
-        #         temp = nltk.word_tokenize(temp)
-        #         filter_word = [word for word in temp if word not in stopwords.words('english')]
-        #         if len(filter_word) <= 1:
-        #             continue
-        #         result.add(e)
-        #     return render_template("new-generate1.html", list=list(result), verb_wheel = verb_wheel)
-        # except Exception:
-        #         return jsonify("error message"),404
-        result = ["labs and programming projects", "data types", "any prior computing knowledge", "the full range", "program structures", "extensive practical work", "overlapping material", "data structures", "Additional Information", "code quality", "all CSE majors", "reflective practice", "a high level programming language", "storage structures"]
-        return render_template("generate1.html", list=list(result), verb_wheel=verb_wheel)
+        connect("course_info")
+        try:
+            result = Course_Info.objects(course_code=course_id)
+            description = json.loads(result.to_json())[0]["description"]
+            description = re.sub(r"[\n]"," ",description)
+            session = Session(aws_access_key_id=aws_key,
+                              aws_secret_access_key=aws_secret,
+                              region_name="ap-southeast-2")
+            client = session.client("comprehend")
+
+            #response from AWS
+            cc = client.batch_detect_key_phrases(
+                TextList=[
+                    description
+                ],
+                LanguageCode='en'
+            )
+            result = set()
+            parttern = re.compile("[a-z]{4}\d{4}")
+            for e in cc["ResultList"][0]["KeyPhrases"]:
+                e = e["Text"]
+                temp = e.lower()
+                if temp.find("student") != -1 or temp.find("course") != -1 or temp.find("unsw")!=-1 or temp.find("study")!=-1 or parttern.findall(temp):
+                    continue
+                temp = nltk.word_tokenize(temp)
+                filter_word = [word for word in temp if word not in stopwords.words('english')]
+                if len(filter_word) <= 1:
+                    continue
+                result.add(e)
+            return render_template("generate1.html", list=list(result), verb_wheel = verb_wheel)
+        except Exception:
+                return jsonify("error message"),404
+        # result = ["labs and programming projects", "data types", "any prior computing knowledge", "the full range", "program structures", "extensive practical work", "overlapping material", "data structures", "Additional Information", "code quality", "all CSE majors", "reflective practice", "a high level programming language", "storage structures"]
+        # return render_template("generate1.html", list=list(result), verb_wheel=verb_wheel)
 
 
 @app.route("/generate2", methods=["POST", "GET"])

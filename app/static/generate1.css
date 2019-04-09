@@ -50,9 +50,8 @@ footer.page-footer {
 }
 
 
-fieldset .box{
-  background-color:#CCC;
-  border: 2px solid orange;
-  max-width:500px;
-  padding:16px;	
+fieldset {
+  background-color:#fff;
+  border: 2px solid teal;
+  padding:20px;	
 }

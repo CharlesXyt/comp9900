@@ -43,7 +43,7 @@ Week 6
   interactive design
 - Verb pools vs. list of words to display - looking into different elements of
   Materialize that would work the best with what we are after
-
+- Materialize search bar working
 
 Week 7
 - Use of tags for users to decide which key phrases are most relevant for them
@@ -52,5 +52,13 @@ Week 7
 - Implement download function: allowing users to download the outcomes created
 - Start writing up HTML templates for remaining generate pages and evaluate
   pages
+
+Week 8
+- Generate part completed (CSS touchups left)
+- Started writing the report
+- Waiting for the others to work on evaluation (no templating needed)
+- Assessment recommendation with the download of learning outcomes
+- Relevant information given, the others will be adding this small change to our
+  download text file
 
 

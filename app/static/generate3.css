@@ -55,3 +55,11 @@
 .rate > label:hover ~ input:checked ~ label {
   color: #c59b08;
 }
+
+ul.outcome_list {
+  font-size: 50px;
+}
+
+footer.page-footer {
+  margin: 0;
+}

@@ -18,6 +18,7 @@ verb_wheel = dict({"Remember": ["Recognise", "Identify", "Recall", "Retrieve", "
                    "Evaluate": ["Evaluate", "Critique", "Review", "Judge", "Justify"],
                    "Create": ["Generate", "Create", "Design", "Construct", "Compose"]})
 nltk.download('stopwords')
+nltk.download('punkt')
 
 
 @app.route("/")

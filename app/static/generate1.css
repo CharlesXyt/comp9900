@@ -48,3 +48,10 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+
+fieldset {
+  background-color:#fff;
+  border: 2px solid teal;
+  padding:20px;	
+}

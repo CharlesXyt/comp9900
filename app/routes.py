@@ -45,10 +45,10 @@ def generate():
 
     if request.method == "POST":
         course_info = request.form.get("course_info").split(" - ")
-        course_id = course_info[0].upper()
+        course_code = course_info[0].upper()
         connect("course_info")
         try:
-            result = Course_Info.objects(course_code=course_id)
+            result = Course_Info.objects(course_code=course_code)
             description = json.loads(result.to_json())[0]["description"]
             description = re.sub(r"[\n]"," ",description)
             session = Session(aws_access_key_id=aws_key,
@@ -114,6 +114,59 @@ def generate3():
             return jsonify("error"), 404
 
 
+@app.route("/evaluate",methods=["GET","POST"])
+def evaluate():
+    if request.method == "GET":
+        with open("course_info.json", "r") as f:
+            course_list = json.loads(f.read())
+            result = {}
+            for e in course_list:
+                result[e] = None
+        return render_template("search-evaluate.html", course_list=result)
+    if request.method == "POST":
+        course_info = request.form.get("course_info").split(" - ")
+        course_code = course_info[0].upper()
+        connect("course_info")
+        with open("verb_wheel.json","r") as f:
+            dict = json.loads(f.read())
+        learning_outcomes = json.loads(Course_Info.objects(course_code=course_code).to_json())[0]["outcomes"]
+
+        outcome_verbs = []
+        count = 0
+        for e in learning_outcomes:
+            e = re.sub(r"â\?\?",'',e)
+            e = e.split()
+            if(e[0].lower() == "to"):
+                outcome_verbs.append(e[1])
+            else:
+                outcome_verbs.append(e[0])
+        for word in outcome_verbs:
+            for e in dict.keys():
+                if word in dict[e]:
+                    count+=1
+        print(count)
+
+
 if __name__ == '__main__':
     connect(host='mongodb://admin:admin@ds139067.mlab.com:39067/my-database')
-    app.run(port=8000, debug=True)
+    connect("course_info")
+    with open("verb_wheel.json", "r") as f:
+        dict = json.loads(f.read())
+    learning_outcomes = json.loads(Course_Info.objects(course_code="GENM0202").to_json())[0]["outcomes"]
+    outcome_verbs = []
+    count = 0
+    for e in learning_outcomes:
+        e = re.sub(r"â\?\?", '', e)
+        e = e.split()
+        if (e[0].lower() == "to"):
+            outcome_verbs.append(e[1])
+        else:
+            outcome_verbs.append(e[0])
+    for e in dict.keys():
+        for word in outcome_verbs:
+            word = word.capitalize()
+            if word in dict[e]:
+                count += 1
+                break
+    print(count)
+    # app.run(port=8000, debug=True)

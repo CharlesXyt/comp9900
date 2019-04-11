@@ -1,13 +1,14 @@
 
 p {
   line-height: 2rem;
+  color: black;
 }
 
 .parallax-container {
   min-height: 380px;
   line-height: 0;
   height: auto;
-  color: rgba(255,255,255,.9);
+  color: orange;
 }
 
 .section1{
@@ -52,6 +53,6 @@ footer.page-footer {
 
 fieldset {
   background-color:#fff;
-  border: 2px solid teal;
+  border: 2px solid #4db6ac;
   padding:20px;	
 }

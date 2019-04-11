@@ -235,50 +235,7 @@
       var key_phrases_list = {{ key_phrases_list|tojson }};
     </script>
     <script type="text/javascript" src=static/generate2.js></script>
-    <script>
-    $(document).ready(function(){
 
-      var verb;
-      var key_phrase;
-      var context;
-      $("#submit-button").click(function(){
-        var outcome_list=[];
-        for (var j=1;j<7;j++){
-            verb = $("#outcome_verb_"+j+" :selected").text();
-            key_phrase = $("#outcome_key_phrases_"+j+" :selected").text();
-            context = $("#input_text_"+j).val();
-            if(verb == "Choose the key verb" ||  key_phrase == "Choose the key phrase"){
-              continue;
-            }
-            console.log(verb+" "+key_phrase+" "+context);
-            outcome_list.push(verb+" "+key_phrase+" "+context);
-        }
-        for(var j=7;j<10;j++){
-          verb = $("#input_text_"+j+"_1").val();
-          key_phrase = $("#input_text_"+j+"_2").val();
-          context = $("#input_text_"+j+"_3").val();
-          if(verb == "" ||  key_phrase == ""){
-            continue;
-          }
-          outcome_list.push(verb+" "+key_phrase+" "+context);
-        }
-        $.ajax({
-    　　　　type:'post',
-    　　　　url:"/generate3",
-    　　　　data:JSON.stringify({outcome_list: JSON.stringify(outcome_list),
-                               }),
-    　　　　contentType : 'application/json',
-    　　　　success:function(data){
-              window.location.href = "/generate3";
-    　　　　},
-    　　　　error: function (XMLHttpRequest, textStatus, errorThrown){
-    　　　　　　alert("error");
-    　　　　}
-        });
-      });
-    });
-
-  </script>
   
   
 </body>

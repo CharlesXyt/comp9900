@@ -14,10 +14,6 @@
 
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-      <div class="progress">
-          <div class="determinate" style="width: 67%"></div>
-      </div>
-
       <br><br>
       <h3 class="header center orange-text">Generated outcomes</h3>
       <div class="row center">
@@ -30,9 +26,10 @@
 
 
   <div class="container">
-    <div class="section">
-      <ul id="outcome_list">
-      </ul>
+    <div class="section" style="font-size: 20px;">
+      <table id="detail_list">
+
+      </table>
 
     </div>
     <br><br>
@@ -41,9 +38,6 @@
   <div class="container">
     <div class="section">
       <p class="center">
-        <button id="outcome_download" class="btn-large waves-effect waves-light">Download
-          <i class="material-icons right">cloud_download</i>
-        </button>
         <a class="waves-effect waves-light btn-large modal-trigger orange" href="#modal1">Rate our generator</a>
 
           <!-- Modal Structure -->
@@ -64,16 +58,13 @@
                       <input type="radio" id="star1" name="rate" value="1" />
                       <label for="star1" title="text">1 star</label>
                   </div>
-                  <br><br> 
+                  <br><br>
             </div>
             <div class="modal-footer">
               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
             </div>
           </div>
-        </p>
-      </div>
-      <br><br>
-    </div>
+    <br><br>
 
     <footer class="page-footer orange">
       <div class="container">
@@ -98,10 +89,13 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="static/materialize.js"></script>
   <script>
-      var outcome_list = {{ outcome_list | tojson }};
-      var course_info ={{course_info|tojson}}
+      var learning_outcomes = {{ learning_outcomes|tojson }};
+      var count_cate = {{ count_cate|tojson}};
+      var result = {{ result|tojson }};
+      console.log(result);
+      console.log(learning_outcomes);
   </script>
-  <script src="static/generate3.js"></script>
+  <script src="static/evaluate.js"></script>
 
 
   </body>

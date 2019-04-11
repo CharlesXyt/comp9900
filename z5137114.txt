@@ -34,3 +34,13 @@ Week 6
 - Demo due, basic structure established
 - Two parts: generate and evaluate, both in progress
 - Prepare for the project report, which is due on Week 10
+
+Week 7
+- Generate part almost done
+- Evaluate part still in progress
+- Main menu and html pages done
+
+Week 8
+- Start working on the proposal
+- Try to finish the evaluate part by this week
+- Working on the workflow diagram to be presented in the final report

@@ -1,10 +1,13 @@
 # capstone-project-a-team
 
 Description
+
 This service provides generation of new course learning outcomes for courses existing in UNSW. Additionally, useres are able to evaluate existing course learning outcomes and recognise which outcomes need to be improved. This system is built on Python 3 using machine learning algorithms provided by the Scikit-learn (http://scikit-learn.org/stable/) library. 
 
 Getting Started
+
 Prerequisites
+
 It is assumed that:
 
 Python 3.6.5 or above is installed (https://www.python.org/downloads/)

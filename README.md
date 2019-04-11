@@ -18,13 +18,6 @@ ml/ - backend Machine Learning algorithms
 fe/ - client GUI for the service built on Flask and Materialize
 data/ - datasets used by ML algorithms
 
-Contributing
-Clone the repository (git clone git@github.com:costaparas/DataAnalyticsService.git)
-Create a new feature branch (git checkout -b foobar-feature)
-Commit new changes (git commit -a -m 'add foobar')
-Push to the branch (git push origin foobar-feature)
-Create a new Pull Request (https://github.com/comp3300-comp9900-term-1-2019/capstone-project-a-team/pulls)
-Merge the Pull Request once it is approved by at least one other contributor
 
 License
 Copyright (C) 2019 Sharon Park, Tiancong Liu, Yitong Xiao, and Yun Lu

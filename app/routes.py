@@ -136,24 +136,26 @@ def evaluate():
         with open("verb_wheel.json","r") as f:
             dict = json.loads(f.read())
         learning_outcomes = json.loads(Course_Info.objects(course_code=course_code).to_json())[0]["outcomes"]
-
+        result= []
+        # check how many words are not verbs
+        verb_wheel_list = [e for key in dict for e in dict[key]]
         # remove messy characters and check the length of this learning outcome
         for i in range(len(learning_outcomes)):
             learning_outcomes[i] = re.sub(r"â\?\?",'',learning_outcomes[i])
             e = learning_outcomes[i].split()
             if len(e) <= 3:
                 count_len+=1
+                result.append(0)
                 continue
             if e[0].lower() == "to":
                 outcome_verbs.append(e[1])
             else:
                 outcome_verbs.append(e[0])
+            if outcome_verbs[-1].capitalize() not in verb_wheel_list:
+                result.append(0)
+                continue
+            result.append(1)
 
-        # check how many words are not verbs
-        verb_wheel_list = [e for key in dict for e in dict[key]]
-        for e in outcome_verbs:
-            if e not in verb_wheel_list:
-                count_nverb+=1
 
         # check how many covered of 6 categories
         for e in dict.keys():
@@ -161,8 +163,7 @@ def evaluate():
                 if word in dict[e]:
                     count_cate+=1
                     break
-
-        return render_template("evaluate.html", learninig_outcomes=learning_outcomes, count_len=count_len, count_cate=count_cate, count_nverb=count_nverb)
+        return render_template("evaluate.html", learning_outcomes=learning_outcomes,result=result,count_cate=count_cate)
         # except Exception:
         #     return jsonify("error"), 404
 

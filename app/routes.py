@@ -129,72 +129,52 @@ def evaluate():
         return render_template("search-evaluate.html", course_list=result)
 
     if request.method == "POST":
-        # try:
-        course_info = request.form.get("course_info").split(" - ")
-        course_code = course_info[0].upper()
-        connect("course_info")
-        with open("verb_wheel.json","r") as f:
-            dict = json.loads(f.read())
-        learning_outcomes = json.loads(Course_Info.objects(course_code=course_code).to_json())[0]["outcomes"]
-        result= []
-        # check how many words are not verbs
-        verb_wheel_list = [e for key in dict for e in dict[key]]
-        # remove messy characters and check the length of this learning outcome
-        for i in range(len(learning_outcomes)):
-            learning_outcomes[i] = re.sub(r"â\?\?",'',learning_outcomes[i])
-            e = learning_outcomes[i].split()
-            if len(e) <= 3:
-                count_len+=1
-                result.append(0)
-                continue
-            if e[0].lower() == "to":
-                outcome_verbs.append(e[1])
-            else:
-                outcome_verbs.append(e[0])
-            if outcome_verbs[-1].capitalize() not in verb_wheel_list:
-                result.append(0)
-                continue
-            result.append(1)
+        try:
+            course_info = request.form.get("course_info").split(" - ")
+            course_code = course_info[0].upper()
+            connect("course_info")
+            with open("verb_wheel.json","r") as f:
+                dict = json.loads(f.read())
+            learning_outcomes = json.loads(Course_Info.objects(course_code=course_code).to_json())[0]["outcomes"]
+            result= []
 
+            # check how many words are not verbs
+            verb_wheel_list = [e for key in dict for e in dict[key]]
 
-        # check how many covered of 6 categories
-        for e in dict.keys():
-            for word in outcome_verbs:
-                if word in dict[e]:
-                    count_cate+=1
-                    break
-        return render_template("evaluate.html", learning_outcomes=learning_outcomes,result=result,count_cate=count_cate)
-        # except Exception:
-        #     return jsonify("error"), 404
+            # remove messy characters and check the length of this learning outcome
+            for i in range(len(learning_outcomes)):
+                learning_outcomes[i] = re.sub(r"â\?\?",'',learning_outcomes[i])
+                learning_outcomes[i] = learning_outcomes[i].capitalize()
+                e = learning_outcomes[i].split()
+                if len(e) <= 3:
+                    count_len+=1
+                    result.append(0)
+                    continue
+                if e[0].lower() == "to":
+                    outcome_verbs.append(e[1])
+                else:
+                    outcome_verbs.append(e[0])
+                outcome_verbs[-1] = re.sub(r"[^A-Za-z]","",outcome_verbs[-1])
+                if outcome_verbs[-1].capitalize() not in verb_wheel_list:
+                    result.append(0)
+                    continue
+                result.append(1)
 
+            # check how many covered of 6 categories
+            for e in dict.keys():
+                for word in outcome_verbs:
+                    if word in dict[e]:
+                        count_cate+=1
+                        break
 
-# @app.route("/evaluate", methods=["GET"])
-# def evaluate1():
-#     global learning_outcomes, count_len, count_cate, count_nverb
-#     return render_template("evaluate.html", learninig_outcomes=learning_outcomes, count_len=count_len, count_cate=count_cate, count_nverb=count_nverb)
+            return render_template("evaluate.html", learning_outcomes=learning_outcomes,result=result,count_cate=count_cate)
+        except Exception:
+            return jsonify("error"), 404
 
 
 if __name__ == '__main__':
     connect(host='mongodb://admin:admin@ds139067.mlab.com:39067/my-database')
     connect("course_info")
-    # with open("verb_wheel.json", "r") as f:
-    #     dict = json.loads(f.read())
-    # learning_outcomes = json.loads(Course_Info.objects(course_code="GENM0202").to_json())[0]["outcomes"]
-    # outcome_verbs = []
-    # count = 0
-    # for e in learning_outcomes:
-    #     e = re.sub(r"â\?\?", '', e)
-    #     e = e.split()
-    #     if (e[0].lower() == "to"):
-    #         outcome_verbs.append(e[1])
-    #     else:
-    #         outcome_verbs.append(e[0])
-    # for e in dict.keys():
-    #     for word in outcome_verbs:
-    #         word = word.capitalize()
-    #         if word in dict[e]:
-    #             count += 1
-    #             break
-    # print(count)
+
 
     app.run(port=8000, debug=True)

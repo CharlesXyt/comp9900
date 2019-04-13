@@ -16,6 +16,7 @@ $(document).ready(function(){
         $("#outcome_list").append("<li>"+outcome_list[i]+"</li>");
         outcome = outcome +(i+1)+". "+outcome_list[i] +"\n";
     }
+    outcome = outcome + "===============Assessments Recommendation===============\n"
     $("#outcome_download").click(function(){
         console.log(outcome);
         var blob = new Blob(['\ufeff' +outcome], {type: 'text/txt,charset=UTF-8'});

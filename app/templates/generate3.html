@@ -99,7 +99,8 @@
   <script src="static/materialize.js"></script>
   <script>
       var outcome_list = {{ outcome_list | tojson }};
-      var course_info ={{course_info|tojson}}
+      var course_info = {{ course_info|tojson }};
+      var assess_rec = {{ assess_rec|tojson }};
   </script>
   <script src="static/generate3.js"></script>
 

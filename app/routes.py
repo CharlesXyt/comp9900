@@ -12,12 +12,21 @@ aws_secret = ""
 verb_list, key_phrases_list,outcome_list, learning_outcomes = [], [], [], []
 course_info=""
 count_len, count_cate, count_nverb = 0, 0, 0
+
+# verb options for front-end
 verb_wheel = dict({"Remember": ["Recognise", "Identify", "Recall", "Retrieve", "Select"],
                    "Understand": ["Explain", "Describe", "Compare", "Understand",  "Illustrate"],
                    "Apply": ["Interpret", "Apply", "Use", "Practice", "Compute"],
                    "Analyse": ["Integrate", "Analyse", "Organise", "Relate", "Deconstruct"],
                    "Evaluate": ["Evaluate", "Critique", "Review", "Judge", "Justify"],
                    "Create": ["Generate", "Create", "Design", "Construct", "Compose"]})
+
+assess_dict = dict({"Create": ["Blueprint", "Formula", "Invention"],
+                    "Evaluate": ["Report", "Survey", "Debate"],
+                    "Analyse": ["Diagram", "Investigation", "Outline"],
+                    "Apply": ["Demonstration", "Experiment", "Presentation", "Report"],
+                    "Understand": ["Debate", "Explanation", "Quiz", "Open-book Exam"],
+                    "Remember": ["Quiz", "Recitation", "Close-book Exam"]})
 nltk.download('stopwords')
 nltk.download('punkt')
 
@@ -79,8 +88,6 @@ def generate():
             return render_template("generate1.html", list=list(result), verb_wheel = verb_wheel)
         except Exception:
                 return jsonify("error message"),404
-        # result = ["labs and programming projects", "data types", "any prior computing knowledge", "the full range", "program structures", "extensive practical work", "overlapping material", "data structures", "Additional Information", "code quality", "all CSE majors", "reflective practice", "a high level programming language", "storage structures"]
-        # return render_template("generate1.html", list=list(result), verb_wheel=verb_wheel)
 
 
 @app.route("/generate2", methods=["POST", "GET"])
@@ -103,8 +110,21 @@ def generate2():
 @app.route("/generate3", methods=["POST", "GET"])
 def generate3():
     global outcome_list
+    assess_rec = dict()
     if request.method == "GET":
-        return render_template("generate3.html", outcome_list=outcome_list, course_info=course_info)
+        try:
+            # establish assessments dictionary
+            for e in outcome_list:
+                e = e.split()
+                for key in verb_wheel:
+                    if key in assess_rec:
+                        continue
+                    if e[0].capitalize() in verb_wheel[key]:
+                        assess_rec[key] = assess_dict[key]
+                        break
+            return render_template("generate3.html", outcome_list=outcome_list, course_info=course_info, assess_rec=assess_rec)
+        except Exception:
+            return jsonify("error"), 404
     if request.method == "POST":
         try:
             outcome_list = []
@@ -175,6 +195,4 @@ def evaluate():
 if __name__ == '__main__':
     connect(host='mongodb://admin:admin@ds139067.mlab.com:39067/my-database')
     connect("course_info")
-
-
     app.run(port=8000, debug=True)

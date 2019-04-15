@@ -67,3 +67,8 @@ ul.outcome_list li{
 footer.page-footer {
   margin: 0;
 }
+fieldset {
+  background-color:#fff;
+  border: 2px solid #4db6ac;
+  padding:20px;
+}

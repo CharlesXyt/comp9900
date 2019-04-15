@@ -19,9 +19,11 @@ pip3 install -r requirements.txt
 
 ## Project Structure
 
-ml/ - backend Machine Learning algorithms 
-fe/ - client GUI for the service built on Flask and Materialize
-data/ - datasets used by ML algorithms
+* ml/ - backend Machine Learning algorithms 
+
+* fe/ - client GUI for the service built on Flask and Materialize
+
+* data/ - datasets used by ML algorithms
 
 
 ## License

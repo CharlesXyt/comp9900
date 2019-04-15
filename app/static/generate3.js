@@ -14,7 +14,7 @@ $(document).ready(function(){
     $("#course_info").html(course_info[0]+"-"+course_info[1]);
     var outcome = "Course Name: " + course_info[1] +"\n"+"Course Code: "+course_info[0]+"\n\n"+"===================Learning Outcomes===================\n"
     for(var i=0;i<outcome_list.length;i++){
-        $(".outcome_list").append("<li>"+outcome_list[i]+"</li>");
+        $(".outcome_list").append("<tr><td>"+outcome_list[i]+"</td></tr>");
         outcome = outcome +(i+1)+". "+outcome_list[i] +"\n";
     }
     outcome = outcome + "\n===============Assessments Recommendation===============\n" +

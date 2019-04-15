@@ -165,8 +165,9 @@ def evaluate():
             # remove messy characters and check the length of this learning outcome
             for i in range(len(learning_outcomes)):
                 learning_outcomes[i] = re.sub(r"â\?\?",'',learning_outcomes[i])
-                learning_outcomes[i] = learning_outcomes[i].capitalize()
                 e = learning_outcomes[i].split()
+                e[0]= e[0].capitalize()
+                learning_outcomes[i] = " ".join(e)
                 if len(e) <= 3:
                     count_len+=1
                     result.append(0)

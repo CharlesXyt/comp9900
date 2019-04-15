@@ -17,7 +17,7 @@
       <br><br>
       <h3 class="header center orange-text">Generated outcomes</h3>
       <div class="row center">
-        <h5 class="header col s12 light">Do we want some text here....?</h5>
+        <h5 id="course_info" class="header col s12 light">Do we want some text here....?</h5>
       </div>
       <br><br>
 
@@ -30,6 +30,10 @@
       <table id="detail_list">
 
       </table>
+
+    </div>
+    <br><br>
+    <div class="outline">
 
     </div>
     <br><br>
@@ -64,9 +68,22 @@
               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
             </div>
           </div>
-    <br><br>
+        </p>
+      </div>
+      <fieldset>
+        <legend style="color:#4db6ac;font-size:18px;">Tips:</legend>
 
-    <footer class="page-footer orange">
+        <p>
+          <img src="static/smile.png" height='50' width='50'> :
+        </p>
+        <p>
+          <img src="static/sad.png" height='50' width='50'>:
+        </p>
+      </fieldset>
+      <br><br>
+    </div>
+
+    <footer class="page-footer orange" style="margin: 0;">
       <div class="container">
         <h5 class="white-text transparent">Did you know?</h5>
         <br>
@@ -75,7 +92,7 @@
           To see the potential assessments for your new outcomes, simply download your outcomes. The assessments will be included in the text file.
           We are working hard to make the process easier for you, your feedback will be always welcome.
 
-        </p>           
+        </p>
       </div>
       <div class="footer-copyright">
         <div class="container">
@@ -92,6 +109,7 @@
       var learning_outcomes = {{ learning_outcomes|tojson }};
       var count_cate = {{ count_cate|tojson}};
       var result = {{ result|tojson }};
+      var course_info = {{course_info|tojson}};
   </script>
   <script src="static/evaluate.js"></script>
 

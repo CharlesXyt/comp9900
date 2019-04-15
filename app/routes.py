@@ -11,7 +11,7 @@ aws_key = ""
 aws_secret = ""
 verb_list, key_phrases_list,outcome_list, learning_outcomes = [], [], [], []
 course_info=""
-count_len, count_cate, count_nverb = 0, 0, 0
+
 
 # verb options for front-end
 verb_wheel = dict({"Remember": ["Recognise", "Identify", "Recall", "Retrieve", "Select"],
@@ -137,9 +137,7 @@ def generate3():
 
 @app.route("/evaluate",methods=["GET","POST"])
 def evaluate():
-    global count_len, count_cate, count_nverb, learning_outcomes
-    outcome_verbs = []
-
+    global learning_outcomes
     if request.method == "GET":
         with open("course_info.json", "r") as f:
             course_list = json.loads(f.read())
@@ -150,13 +148,16 @@ def evaluate():
 
     if request.method == "POST":
         try:
-            course_info = request.form.get("course_info").split(" - ")
+            outcome_verbs, result = [], []
+            count_len, count_cate, count_nverb = 0, 0, 0
+            course_info_all = request.form.get("course_info")
+            course_info = course_info_all.split()
             course_code = course_info[0].upper()
             connect("course_info")
             with open("verb_wheel.json","r") as f:
                 dict = json.loads(f.read())
             learning_outcomes = json.loads(Course_Info.objects(course_code=course_code).to_json())[0]["outcomes"]
-            result= []
+
 
             # check how many words are not verbs
             verb_wheel_list = [e for key in dict for e in dict[key]]
@@ -187,7 +188,7 @@ def evaluate():
                         count_cate+=1
                         break
 
-            return render_template("evaluate.html", learning_outcomes=learning_outcomes,result=result,count_cate=count_cate)
+            return render_template("evaluate.html", course_info=course_info_all,learning_outcomes=learning_outcomes,result=result,count_cate=count_cate)
         except Exception:
             return jsonify("error"), 404
 

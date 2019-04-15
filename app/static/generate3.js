@@ -10,10 +10,11 @@
           
 })(jQuery); // end of jQuery name space
 $(document).ready(function(){
-    $("#outcome_list").empty();
+    $(".outcome_list").empty();
+    $("#course_info").html(course_info[0]+"-"+course_info[1]);
     var outcome = "Course Name: " + course_info[1] +"\n"+"Course Code: "+course_info[0]+"\n\n"+"===================Learning Outcomes===================\n"
     for(var i=0;i<outcome_list.length;i++){
-        $("#outcome_list").append("<li>"+outcome_list[i]+"</li>");
+        $(".outcome_list").append("<li>"+outcome_list[i]+"</li>");
         outcome = outcome +(i+1)+". "+outcome_list[i] +"\n";
     }
     outcome = outcome + "\n===============Assessments Recommendation===============\n" +

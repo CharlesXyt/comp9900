@@ -56,12 +56,9 @@
   color: #c59b08;
 }
 
-ul.outcome_list{
+table.outcome_list tr td{
     font-size: 24px;
     margin-left:100px;
-}
-ul.outcome_list li{
-    list-style-type:circle;
 }
 
 footer.page-footer {

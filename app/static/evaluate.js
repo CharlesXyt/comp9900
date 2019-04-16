@@ -1,3 +1,11 @@
+(function($){
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+            
+  })(jQuery); // end of jQuery name space
+
+
 $(document).ready(function(){
     $("#detail_list").empty();
     $("#course_info").html(course_info);

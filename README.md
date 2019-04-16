@@ -2,7 +2,7 @@
 
 ## Description
 
-This service provides generation of new course learning outcomes for courses existing in UNSW. Additionally, users are able to evaluate existing course learning outcomes and recognise which outcomes need to be improved. This system is built on Python 3 with data that was preprocessed with NLP provided by AWS Comprehend API (https://docs.aws.amazon.com/comprehend/latest/dg/API_Reference.html).
+This service is created to assist users with creating or evaluating course learning outcomes for existing courses in the University of New South Wales. Users are able to generate achievable, relevant and succinct learning outcomes that align with Austrlaian Qualifications Framework (AQF) recommendations. This system is built on Python 3 with data that was preprocessed with NLP provided by AWS Comprehend API (https://docs.aws.amazon.com/comprehend/latest/dg/API_Reference.html).
 
 ## Getting Started
 
@@ -15,6 +15,11 @@ Python 3.6.5 or above is installed (https://www.python.org/downloads/)
 ### Installation
 
 pip3 install -r requirements.txt
+
+go to this folder
+cd app
+run our program
+python3 routes.py 
 
 ## How to use
 

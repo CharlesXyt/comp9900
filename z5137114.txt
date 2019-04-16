@@ -44,3 +44,9 @@ Week 8
 - Start working on the proposal
 - Try to finish the evaluate part by this week
 - Working on the workflow diagram to be presented in the final report
+
+Week 9
+- Wrapping up the project, learning outcome generator
+- Halfway through the final report
+- Preparing for the demo next week
+

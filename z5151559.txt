@@ -1,3 +1,7 @@
+// Weekly Diary for Yitong Xiao
+
+
+
 Week 1:
   Just know what's the project about;
   For this project, we need to apply machine learning into this, So i learnt basic knowleage and usage of it.

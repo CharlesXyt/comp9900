@@ -23,3 +23,29 @@ Week 4
 2. formed data in Document type and upload to mongoDB as an online database
 3. Had a group meeting
 
+Week 5
+1. formed a clean data of neccesary information
+2. established own database for interaction with the server on mlab
+3. looked into search function
+
+Week 6
+1. connected autocomplete function needed in search bar with database
+2. the team agreed on the basic structure of functions on the proj
+3. looked into AWS Comprehend recommended by the tutor and studied other existing text analysis API, such as Azure, google cloud and Aylien
+
+Week 7
+1. formed a measurable verb wheel in backend
+2. displayed key phrases grabbed from AWS Comprehend and measurable verbs and let users make own sentences
+3. connected two pages by passing the user's selections from page 1 to page 2 of generator
+4. saved necessary variables from users input, such as course info, verbs and key phrases in backend for further use 
+
+Week 8
+1. displayed the generated sentences on last page
+2. designed a download format of learning outcome files
+3. the team agreed on the qualify standard for each learning outcome of our evaluator
+4. divied the standard into three steps, accomplished the measurable verb check and sentence's length check
+
+Week 9
+1. finished categories covered check function of evaluator
+2. wrote comments on every major function in python files
+3. fixed some bugs and added 404 page

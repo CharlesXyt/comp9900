@@ -7,6 +7,7 @@ result_lo = {}
 result_acad = {}
 result = []
 
+# establishment of classes suitable for mongodb database
 class Course_Info(Document):
     course_code = StringField(required = True, primary_key=True)
     course_name = StringField()
@@ -37,10 +38,8 @@ def json_to_dict():
         content.pop()
         for e in content:
             e = json.loads(e[1:])
-            # print(e)
             if e["type"] != "course":
                 continue
-            # print(e)
             if e["handbook_description"]:
                 des = BeautifulSoup(e["handbook_description"], "html.parser").get_text()
             else:
@@ -51,13 +50,11 @@ def json_to_dict():
 def upload():
     # connect mongodb and store course info one by one
     connect(host='mongodb://admin:admin@ds139067.mlab.com:39067/my-database')
-    # connect('capstone_project')
 
     for e in result_lo.keys():
         if e not in result_acad.keys():
             continue
         temp = result_acad[e]
         course_info = Course_Info(temp["course_code"],temp["name"],temp["handbook_description"],result_lo[e])
-        # result.append({"course_name":temp["name"],"course_code":temp["course_code"],"description":temp["handbook_description"],"learning_outcome":result_lo[e]})
         course_info.save()
 

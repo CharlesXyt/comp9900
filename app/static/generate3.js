@@ -9,6 +9,7 @@
   });
           
 })(jQuery); // end of jQuery name space
+
 $(document).ready(function(){
     $(".outcome_list").empty();
     $("#course_info").html(course_info[0]+"-"+course_info[1]);

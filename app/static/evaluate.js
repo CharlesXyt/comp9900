@@ -15,7 +15,6 @@ $(document).ready(function(){
         }else{
             $("#detail_list").append("<tr><td>"+learning_outcomes[i]+"</td><td><img src='static/sad.png' height='50' width='50'></img></td></tr>");
         }
-
     }
     $(".outline").append("<p class='orange-text' style='font-size:20px;'>These learning outcomes cover "+count_cate+"/6 of Revised Bloom's Taxonomy cognitive process dimension.</p>")
 

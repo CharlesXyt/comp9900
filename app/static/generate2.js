@@ -1,5 +1,5 @@
 $(document).ready(function(){
-//<!--dynamically generate verb options-->
+    <!--dynamically generate verb options-->
     var length = 6;
     if (verb_list.length < length){
       length = verb_list.length;
@@ -19,7 +19,7 @@ $(document).ready(function(){
         }
     }
 
-    //<!--dynamically generate key phrases options-->
+    <!--dynamically generate key phrases options-->
     for (var i=1; i<=6; i++){
         $("#outcome_key_phrases_"+i).append("<option value=''>Choose the key phrase</option>");
         for (var j=0; j<key_phrases_list.length; j++){

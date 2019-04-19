@@ -4,3 +4,42 @@ Week 1:
 
 Week 2:
   After taking the tutorial, i know we also need natrual language processing, so i learnt basic knowledge such as nltk and word2vec python package and analyze the structure of the given data, at end of the week, finish the basic extraction of the given data.
+
+Week 3:
+  Preprocess the data given by lecturer;
+  Using NLP to clean and filter data according to the aim of learning outcome generation.
+  
+Week 4:
+  Establish the data stucture and upload to mlab;
+  Build backend server for basic use by using flask;
+  Connect the frontend html pages with backend.
+  
+Week 5:
+  Filter the data and save it locally for autocomplete function use;
+  Filled in the course information in frontend and finish the search bar.
+  
+Week 6:
+  Learning how to use AWS Comprehend by using boto3 package;
+  Build credentials for AWS authorization;
+  Implement the backend server and pass the key phrases extracted by AWS comprehend to frontend and show it properly.
+  
+Week 7:
+  According user's selection, implement the javascript to pass the key phrases and verbs into next pages;
+  Accomplish the backend function to synchronize with the front end;
+  Let user to match key phrases and verbs and display the current learning outcomes in gernate2 page;
+  Pass the final results to backend;
+  
+Week 8:
+  Finish the download function in generate3 page by using Blob in javascript;
+  Basically complete the generation part;
+  Get started to evaluate part, finish the basic backend functions for it;
+  
+Week 9:
+  Extract the existing learning outcomes selected by user from database;
+  According to the criterion discussed in weekly meeting, analyse the quality of learning outcome;
+  Pass the results to frontend and display them perfectly;
+  Fix some bugs and add 404 pages to make the app stable.
+  
+  
+  
+  

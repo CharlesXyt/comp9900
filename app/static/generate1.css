@@ -1,7 +1,7 @@
 
 p {
   line-height: 2rem;
-  color: black;
+  color: grey;
 }
 
 .parallax-container {
@@ -38,6 +38,8 @@ p {
     top: 0;
   }
 }
+
+
 
 .icon-block {
   padding: 0 15px;

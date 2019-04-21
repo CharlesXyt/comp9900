@@ -17,6 +17,7 @@ Python 3.6.5 or above is installed (https://www.python.org/downloads/)
 pip3 install -r requirements.txt
 
 run **routes.py** in the folder **app**
+
 python3 routes.py 
 
 ## How to use

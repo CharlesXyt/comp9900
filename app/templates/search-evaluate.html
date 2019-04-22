@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <!--Import Google Icon Font-->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!--Import materialize.css-->
+            <link type="text/css" rel="stylesheet" href="static/materialize.css"  media="screen,projection"/>
+            <link rel="stylesheet" href="static/search-generate.css")>
+            <!--Let browser know website is optimized for mobile-->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </head>
+
+        <body>
+          <main>
+          <div class="search-page">
+            <div class="page-content">
+              <h3>Evaluate your learning outcomes</h3>
+              <p>
+              </p>
+              <div class="container">
+                  <form name="Form1" id="course_form" method="POST" action="{{url_for('evaluate')}}">
+                      <div class="input-field">
+                          <input type="text" name="course_info" class="transparent grey-text dark autocomplete" id="autocomplete-input" placeholder="  Enter course code" >
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+          </main>
+
+          <footer class="page-footer orange">
+            <div class="container transparent">
+              <h5 class="white-text transparent">About the service</h5>
+              <p class="white-text transparent">
+                Learning outcomes must be achievable, relevant, timely, consistent and succinct and clearly understandable by students.
+                Course learning outcomes should avoid passive verbs and phrases such as "Be familiar with" or "Be able to" and including tasks in the learning outcomes.
+                It is important that learning outcome set covers different levels of thinking and knowledge area. With these requirements in mind, our service
+                evaluates learning outcomes of existing courses in UNSW.
+
+
+              </p>
+            </div>
+                
+            <div class="footer-copyright">
+              <div class="container transparent">
+              © 2019 Copyright A Team
+              </div>
+            </div>
+          </footer>
+
+          <!--JavaScript at end of body for optimized loading-->
+          <!--Import jQuery before materialize-->
+          <script type="text/javascript" src=static/jquery-3.3.1.min.js></script>
+          <script type="text/javascript" src="static/materialize.min.js"></script>
+
+          <script type="text/javascript">
+                var availableTags = {{ course_list|tojson }};
+          </script>
+          <script type="text/javascript" src="static/search.js"></script>
+        </body>
+    </html>

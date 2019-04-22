@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.landing-page{
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.landing-page::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(image.jpg);
+    height: 100%
+    background-position: center;
+    background-size: cover;
+    opacity: .4;
+    animation: anim 25s linear infinite;
+}
+
+@keyframes anim {
+    50% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.page-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 40px;
+    
+}
+
+.page-content h1{
+    color: #fc913a;
+    font-size: 40px;
+    margin-bottom: 100px;
+}
+.page-content p{
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.button {
+    color: #f4f4f4;
+    display: inline-block;
+    margin: 0.3em;
+    padding: 1.2em 5em;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 3px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    border: none; 
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  .button:hover {
+    box-shadow: 1px 6px 15px rgba(0,0,0,0.5);
+  }
+
+.ripple {
+    position: absolute;
+    background: rgba(0,0,0,.25);
+    border-radius: 100%;
+    transform: scale(0.2);
+    opacity:0;
+    pointer-events: none;
+    -webkit-animation: ripple .75s ease-out;
+    -moz-animation: ripple .75s ease-out;
+    animation: ripple .75s ease-out;
+  }
+  
+  @-webkit-keyframes ripple {
+    from {
+      opacity:1;
+    }
+    to {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+  @-moz-keyframes ripple {
+    from {
+      opacity:1;
+    }
+    to {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes ripple {
+    from {
+      opacity:1;
+    }
+    to {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+.text{
+    padding: 10px;
+    text-align: justify;
+}
+
+.text div{
+    margin-bottom: 6px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#notfound {
+  position: relative;
+  height: 100vh;
+}
+
+#notfound .notfound {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.notfound {
+  max-width: 767px;
+  width: 100%;
+  line-height: 1.4;
+  padding: 0px 15px;
+}
+
+.notfound .notfound-404 {
+  position: relative;
+  height: 150px;
+  line-height: 150px;
+  margin-bottom: 25px;
+}
+
+.notfound .notfound-404 h1 {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 186px;
+  font-weight: 900;
+  margin: 0px;
+  text-transform: uppercase;
+  background: url('../static/text.png');
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: cover;
+  background-position: center;
+}
+
+.notfound h2 {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.notfound p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+}
+
+.notfound a {
+  font-family: 'Titillium Web', sans-serif;
+  display: inline-block;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  background: #5c91fe;
+  padding: 10px 40px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 1px;
+  margin-top: 15px;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.notfound a:hover {
+  opacity: 0.8;
+}
+
+@media only screen and (max-width: 767px) {
+  .notfound .notfound-404 {
+    height: 110px;
+    line-height: 110px;
+  }
+  .notfound .notfound-404 h1 {
+    font-size: 120px;
+  }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Learning outcome evaluator</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="static/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="static/generate3.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h3 class="header center orange-text">Evaluated outcomes</h3>
+      <div class="row center">
+        <h4 id="course_info" class="header col s12 light"></h4>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section" style="font-size: 18px;">
+      <table id="detail_list">
+
+      </table>
+
+    </div>
+    <br><br>
+    <div class="outline">
+
+    </div>
+    <br>
+  </div>
+
+  <br><br>
+  <div class="container">
+      <fieldset>
+        <legend style="color:#4db6ac;font-size:18px;">Tips:</legend>
+        <table>
+          <tr>
+            <td>
+              <img src="static/smile.png" height='50' width='50'>
+            </td>
+            <td>
+              Nice! These learning outcomes are:
+              <br>
+              - measurable, and succint sentences
+              <br>
+              - focused skills and context are laid out clearly
+            </td>
+          </tr>
+          <tr>
+            <td><img src="static/sad.png" height='50' width='50'></td>
+            <td style="font-size: 16px;">
+              Improve your learning outcomes by:
+              <br>
+              - starting with a measurable, active verb
+              <br>
+              - provide sufficient information with context and skills
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+      <br><br>
+
+      <br><br>
+      <p class="center">
+        <a class="waves-effect waves-light btn-large modal-trigger orange" href="#modal1">Rate our service</a>
+
+          <!-- Modal Structure -->
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h6 class="center">How useful were our evaluations?</h6>
+              <p class="center">
+                  <br><br>
+                  <div class="rate">
+                      <input type="radio" id="star5" name="rate" value="5" />
+                      <label for="star5" title="text">5 stars</label>
+                      <input type="radio" id="star4" name="rate" value="4" />
+                      <label for="star4" title="text">4 stars</label>
+                      <input type="radio" id="star3" name="rate" value="3" />
+                      <label for="star3" title="text">3 stars</label>
+                      <input type="radio" id="star2" name="rate" value="2" />
+                      <label for="star2" title="text">2 stars</label>
+                      <input type="radio" id="star1" name="rate" value="1" />
+                      <label for="star1" title="text">1 star</label>
+                  </div>
+                  <br><br>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+            </div>
+          </div>
+        </p>
+  <br>
+        <p class="center">
+            <a class="waves-effect waves-light btn-large modal-trigger teal" href="/"><i class="material-icons right">home</i>Return home</a>
+         
+        </p>
+  </div>
+    <br><br>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="static/materialize.js"></script>
+  <script>
+      var learning_outcomes = {{ learning_outcomes|tojson }};
+      var count_cate = {{ count_cate|tojson}};
+      var result = {{ result|tojson }};
+      var course_info = {{course_info|tojson}};
+  </script>
+  <script src="static/evaluate.js"></script>
+
+
+  </body>
+</html>

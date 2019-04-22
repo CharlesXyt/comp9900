@@ -1,7 +1,8 @@
 
-p {
+h6 {
   line-height: 2rem;
   color: grey;
+  font-size: 10px;
 }
 
 .parallax-container {

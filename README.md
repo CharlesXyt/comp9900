@@ -11,6 +11,7 @@ This service is created to assist users with creating or evaluating course learn
 It is assumed that:
 
 Python 3.6.5 or above is installed (https://www.python.org/downloads/)
+
 Users should fill in their own aws credential in the /app/credentail file
 
 ### Installation

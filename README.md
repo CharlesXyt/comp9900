@@ -12,7 +12,7 @@ It is assumed that:
 
 Python 3.6.5 or above is installed (https://www.python.org/downloads/)
 
-Users should fill in their own aws credential in the /app/credentail file
+Users should fill in their own aws credential in the /app/credential file
 
 ### Installation
 
